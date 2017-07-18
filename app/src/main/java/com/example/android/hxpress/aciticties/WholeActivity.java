@@ -1,55 +1,101 @@
 package com.example.android.hxpress.aciticties;
 
-import android.support.annotation.IdRes;
-import android.support.v4.content.ContextCompat;
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.android.hxpress.R;
-import com.roughike.bottombar.BottomBar;
-import com.roughike.bottombar.OnMenuTabClickListener;
+import com.example.android.hxpress.event.TabSelectedEvent;
+import com.example.android.hxpress.fragments.AboutMeFragment;
+import com.example.android.hxpress.fragments.MoreInfoFragment;
+import com.example.android.hxpress.fragments.SquareFragment;
+import com.example.android.hxpress.fragments.TimeLineFragment;
+import com.example.android.hxpress.view.BottomBar;
+import com.example.android.hxpress.view.BottomBarTab;
+import org.greenrobot.eventbus.EventBus;
+import me.yokeyword.fragmentation.SupportActivity;
+import me.yokeyword.fragmentation.SupportFragment;
 
-public class WholeActivity extends AppCompatActivity {
-    //底部菜单栏
-    private BottomBar mBottomBar;
+
+
+public class WholeActivity extends SupportActivity {
+    public static final int FIRST = 0;
+    public static final int SECOND = 1;
+    public static final int THIRD = 2;
+    public static final int FOURTH = 3;
+
+    private SupportFragment[] mFragments = new SupportFragment[4];
+
+   private BottomBar mBottomBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_whole);
-        mBottomBar = BottomBar.attach(this, savedInstanceState);
-        intitialBottomBar();
+        SupportFragment firstFragment = findFragment(SquareFragment.class);
+        if (firstFragment == null) {
+            mFragments[FIRST] = SquareFragment.newInstance();
+            mFragments[SECOND] = TimeLineFragment.newInstance();
+            mFragments[THIRD] = MoreInfoFragment.newInstance();
+            mFragments[FOURTH] = AboutMeFragment.newInstance();
+
+            loadMultipleRootFragment(R.id.fl_container, FIRST,
+                    mFragments[FIRST],
+                    mFragments[SECOND],
+                    mFragments[THIRD],
+                    mFragments[FOURTH]);
+        } else {
+            mFragments[FIRST] = firstFragment;
+            mFragments[SECOND] = findFragment(TimeLineFragment.class);
+            mFragments[THIRD] = findFragment(MoreInfoFragment.class);
+            mFragments[FOURTH] = findFragment(AboutMeFragment.class);
+        }
+        initView();
     }
 
-    private void intitialBottomBar(){
-        mBottomBar.setItems(R.menu.bottombar_menu);
-        mBottomBar.setOnMenuTabClickListener(new OnMenuTabClickListener() {
+    private void initView() {
+        mBottomBar = (BottomBar) findViewById(R.id.bottomBar);
+
+        mBottomBar.addItem(new BottomBarTab(this, R.drawable.ic_public_black_24dp))
+                .addItem(new BottomBarTab(this, R.drawable.ic_notifications_black_24dp))
+                .addItem(new BottomBarTab(this, R.drawable.ic_more_horiz_black_24dp))
+                .addItem(new BottomBarTab(this, R.drawable.ic_person_black_24dp));
+
+        mBottomBar.setOnTabSelectedListener(new BottomBar.OnTabSelectedListener() {
             @Override
-            public void onMenuTabSelected(@IdRes int menuItemId) {
-                //单击事件 menuItemId 是 R.menu.bottombar_menu 中 item 的 id
-                switch (menuItemId){
-                    //广场
-                    case 0:
-                        break;
-                    //动态
-                    case 1:
-                        break;
-                    //更多
-                    case 2:
-                        break;
-                    //关于我
-                    case 3:
-                        break;
+            public void onTabSelected(int position, int prePosition) {
+                showHideFragment(mFragments[position], mFragments[prePosition]);
+            }
+
+            @Override
+            public void onTabUnselected(int position) {
+
+            }
+
+            @Override
+            public void onTabReselected(int position) {
+                final SupportFragment currentFragment = mFragments[position];
+                int count = currentFragment.getChildFragmentManager().getBackStackEntryCount();
+
+                // 如果不在该类别Fragment的主页,则回到主页;
+                if (count > 1) {
+                    if (currentFragment instanceof SquareFragment) {
+                        currentFragment.popToChild(SquareFragment.class, false);
+                    } else if (currentFragment instanceof TimeLineFragment) {
+                        currentFragment.popToChild(TimeLineFragment.class, false);
+                    } else if (currentFragment instanceof MoreInfoFragment) {
+                        currentFragment.popToChild(MoreInfoFragment.class, false);
+                    } else if (currentFragment instanceof AboutMeFragment) {
+                        currentFragment.popToChild(AboutMeFragment.class, false);
+                    }
+                    return;
+                }
+
+                if (count == 1) {
+                    // 在FirstPagerFragment中接收, 因为是嵌套的孙子Fragment 所以用EventBus比较方便
+                    // 主要为了交互: 重选tab 如果列表不在顶部则移动到顶部,如果已经在顶部,则刷新
+                    EventBus.getDefault().post(new TabSelectedEvent(position));
                 }
             }
-            @Override
-            public void onMenuTabReSelected(@IdRes int menuItemId) {
-                //重选事件，当前已经选择了这个，又点了这个tab。微博点击首页刷新页面
-            }
         });
-        // 当点击不同按钮的时候，设置不同的颜色
-        mBottomBar.mapColorForTab(0, ContextCompat.getColor(this, R.color.colorAccent));
-        mBottomBar.mapColorForTab(1, "#FF7B9C");
-        mBottomBar.mapColorForTab(2, "#83CEFF");
-        mBottomBar.mapColorForTab(3, "#FFEB3B");
     }
 }
