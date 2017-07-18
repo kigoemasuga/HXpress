@@ -1,13 +1,14 @@
-package com.example.android.hxpress;
+package com.example.android.hxpress.aciticties;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import com.example.android.hxpress.R;
 
 public class WholeActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_whole);
+        setContentView(R.layout.activity_whole2);
     }
 }
