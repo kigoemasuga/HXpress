@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/bb_menu_square"
+        android:icon="@drawable/ic_public_black_24dp"
+        android:title="Square" />
+    <item
+        android:id="@+id/bb_menu_timeline"
+        android:icon="@drawable/ic_notifications_black_24dp"
+        android:title="Timeline" />
+    <item
+        android:id="@+id/bb_menu_more"
+        android:icon="@drawable/ic_more_horiz_black_24dp"
+        android:title="More" />
+    <item
+        android:id="@+id/bb_menu_me"
+        android:icon="@drawable/ic_person_black_24dp"
+        android:title="Me" />
+</menu>
