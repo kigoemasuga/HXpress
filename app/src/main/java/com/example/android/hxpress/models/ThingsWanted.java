@@ -16,8 +16,8 @@ public class ThingsWanted extends BmobFile {
     private User addresser;                 //发货人
     private User recipients;                //收件人
     private User courier;                   //派送的人
-    private List<User> Want2HelpBuy;        //想帮助买的人
-    private List<User> Want2Helpdelivery;   //想帮助派送的人
+    private List<Want2Buy> Want2HelpBuy;             //想帮助买的人
+    private List<Want2Delivery> Want2Helpdelivery;   //想帮助派送的人
     private double longitude;       //物品所在地的经度
     private double latitude ;       //物品所在地的纬度
     private String send2address;    //收货地址
@@ -79,19 +79,19 @@ public class ThingsWanted extends BmobFile {
         this.courier = courier;
     }
 
-    public List<User> getWant2HelpBuy() {
+    public List<Want2Buy> getWant2HelpBuy() {
         return Want2HelpBuy;
     }
 
-    public void setWant2HelpBuy(List<User> want2HelpBuy) {
+    public void setWant2HelpBuy(List<Want2Buy> want2HelpBuy) {
         Want2HelpBuy = want2HelpBuy;
     }
 
-    public List<User> getWant2Helpdelivery() {
+    public List<Want2Delivery> getWant2Helpdelivery() {
         return Want2Helpdelivery;
     }
 
-    public void setWant2Helpdelivery(List<User> want2Helpdelivery) {
+    public void setWant2Helpdelivery(List<Want2Delivery> want2Helpdelivery) {
         Want2Helpdelivery = want2Helpdelivery;
     }
 

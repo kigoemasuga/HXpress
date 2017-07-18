@@ -8,20 +8,21 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.android.hxpress.R;
+import com.example.android.hxpress.base.BaseMainFragment;
 
-import me.yokeyword.fragmentation.SupportFragment;
 
 /**
  * Created by kigoe on 2017/7/19.
  */
 
-public class SquareFragment extends SupportFragment {
+public class SquareFragment extends BaseMainFragment {
+
+    private Toolbar mToolbar;
+    private RecyclerView mRecy;
 
     public static SquareFragment newInstance() {
         return new SquareFragment();
     }
-    private Toolbar mToolbar;
-    private RecyclerView mRecy;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
