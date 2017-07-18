@@ -9,17 +9,17 @@ import cn.bmob.v3.datatype.BmobFile;
  */
 
 public class ThingsWanted extends BmobFile {
-    private String title;
-    private String description;
-    private List<BmobFile> images;
-    private int progressNum;
-    private User addresser;
-    private User recipients;
-    private User courier;
-    private List<User> Want2HelpBuy;
-    private List<User> Want2Helpdelivery;
-    private double longitude;   //经度
-    private double latitude ;   //纬度
+    private String title;                   //物品标题
+    private String description;             //物品描述
+    private List<BmobFile> images;          //物品的描述图片
+    private int progressNum;                //进度信息
+    private User addresser;                 //发货人
+    private User recipients;                //收件人
+    private User courier;                   //派送的人
+    private List<User> Want2HelpBuy;        //想帮助买的人
+    private List<User> Want2Helpdelivery;   //想帮助派送的人
+    private double longitude;       //物品所在地的经度
+    private double latitude ;       //物品所在地的纬度
     private String send2address;    //收货地址
     private String addresserName;   //收件人名称
 
