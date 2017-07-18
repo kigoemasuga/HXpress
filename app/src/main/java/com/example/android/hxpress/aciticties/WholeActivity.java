@@ -1,11 +1,13 @@
 package com.example.android.hxpress.aciticties;
 
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
+
 import com.example.android.hxpress.R;
+import com.example.android.hxpress.base.BaseMainFragment;
 import com.example.android.hxpress.event.TabSelectedEvent;
-import com.example.android.hxpress.fragments.AboutMeFragment;
+import com.example.android.hxpress.fragments.aboutme.AboutMeFragment;
 import com.example.android.hxpress.fragments.MoreInfoFragment;
 import com.example.android.hxpress.fragments.SquareFragment;
 import com.example.android.hxpress.fragments.TimeLineFragment;
@@ -17,7 +19,7 @@ import me.yokeyword.fragmentation.SupportFragment;
 
 
 
-public class WholeActivity extends SupportActivity {
+public class WholeActivity extends SupportActivity implements BaseMainFragment.OnBackToFirstListener {
     public static final int FIRST = 0;
     public static final int SECOND = 1;
     public static final int THIRD = 2;
@@ -97,5 +99,19 @@ public class WholeActivity extends SupportActivity {
                 }
             }
         });
+    }
+
+    @Override
+    public void onBackPressedSupport() {
+        if (getSupportFragmentManager().getBackStackEntryCount() > 1) {
+            pop();
+        } else {
+            ActivityCompat.finishAfterTransition(this);
+        }
+    }
+
+    @Override
+    public void onBackToFirstFragment() {
+        mBottomBar.setCurrentItem(0);
     }
 }
