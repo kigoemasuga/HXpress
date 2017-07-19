@@ -11,6 +11,13 @@ import cn.bmob.v3.datatype.BmobGeoPoint;
  */
 
 public class ThingsWanted extends BmobObject {
+    private static final int POST_WANTED = 634;         //发布了“欲购”的东西（待接单）
+    private static final int WAIT_FOR_PAY_PRICE = 847;  //有热心人想帮忙购买（代付款）
+    private static final int DEAL_WITHOUT_BUYED = 632;  //选择代购者完毕（已接单未购买）
+    private static final int WAIT_FOR_EXPRESS = 2;      //代购者已购物未有人派送（待派送）
+    private static final int WAIT_FOR_RECIEVE = 264;    //选择代送者完毕（待送达）
+    private static final int RECEIVED_WAIT_COMMENT = 233;//订单主确定收货（待评价）
+    private static final int DEAL_DONE = 667;           //订单主评价完成（交易完成）
     private String title;                   //物品标题
     private String description;             //物品描述(HTML)
     private String topImgUrls;              //顶部图片的url
@@ -21,8 +28,46 @@ public class ThingsWanted extends BmobObject {
     private List<Want2Buy> Want2HelpBuy;             //想帮助买的人
     private List<Want2Delivery> Want2Helpdelivery;   //想帮助派送的人
     private BmobGeoPoint point;             //坐标
-    private String send2address;    //收货地址
-    private String send2Name;   //收件人名称
+    private String send2address;            //收货地址
+    private String send2Name;               //收件人名称
+    private BmobGeoPoint whereitnow;        //物品的当前位置
+    private String whereCanBuyInAddress;    //在哪里可以买的具体地址
+
+    public String statusCode2TextInSquare(int statuCode) {
+        String statusInString = "";
+        switch (statuCode) {
+            case POST_WANTED:
+            case WAIT_FOR_PAY_PRICE:
+                statusInString = "待帮购";
+                break;
+            case DEAL_WITHOUT_BUYED:
+            case WAIT_FOR_EXPRESS:
+                statusInString = "待随手送";
+                break;
+            case DEAL_DONE:
+                statusInString = "完成订单";
+            default:
+                statusInString = "其他";
+                break;
+        }
+        return statusInString;
+    }
+
+    public BmobGeoPoint getWhereitnow() {
+        return whereitnow;
+    }
+
+    public void setWhereitnow(BmobGeoPoint whereitnow) {
+        this.whereitnow = whereitnow;
+    }
+
+    public String getWhereCanBuyInAddress() {
+        return whereCanBuyInAddress;
+    }
+
+    public void setWhereCanBuyInAddress(String whereCanBuyInAddress) {
+        this.whereCanBuyInAddress = whereCanBuyInAddress;
+    }
 
     public String getSend2Name() {
         return send2Name;
@@ -119,5 +164,6 @@ public class ThingsWanted extends BmobObject {
     public void setSend2address(String send2address) {
         this.send2address = send2address;
     }
+
 
 }

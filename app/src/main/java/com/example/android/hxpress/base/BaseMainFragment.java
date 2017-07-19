@@ -2,7 +2,7 @@ package com.example.android.hxpress.base;
 
 import android.content.Context;
 
-import com.example.android.hxpress.fragments.SquareFragment;
+import com.example.android.hxpress.fragments.square.SquareFragment;
 
 import me.yokeyword.fragmentation.SupportFragment;
 

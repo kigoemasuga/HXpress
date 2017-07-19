@@ -11,7 +11,7 @@ import com.example.android.hxpress.base.BaseMainFragment;
 import com.example.android.hxpress.event.TabSelectedEvent;
 import com.example.android.hxpress.fragments.aboutme.AboutMeFragment;
 import com.example.android.hxpress.fragments.MoreInfoFragment;
-import com.example.android.hxpress.fragments.SquareFragment;
+import com.example.android.hxpress.fragments.square.SquareFragment;
 import com.example.android.hxpress.fragments.timeline.TimeLineFragment;
 import com.example.android.hxpress.view.BottomBar;
 import com.example.android.hxpress.view.BottomBarTab;
