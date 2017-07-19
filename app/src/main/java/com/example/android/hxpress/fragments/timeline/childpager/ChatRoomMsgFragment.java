@@ -14,13 +14,10 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.android.hxpress.R;
-import com.example.android.hxpress.aciticties.WholeActivity;
 import com.example.android.hxpress.base.BaseBackFragment;
 import com.example.android.hxpress.models.Chat;
 import com.example.android.hxpress.models.Msg;
-import com.example.android.hxpress.models.MsgAdapter;
-
-import me.yokeyword.fragmentation.SupportFragment;
+import com.example.android.hxpress.adapters.MsgAdapter;
 
 /**
  * Created by YoKeyword on 16/6/30.

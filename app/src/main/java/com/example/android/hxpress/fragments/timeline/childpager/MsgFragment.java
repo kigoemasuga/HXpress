@@ -18,7 +18,7 @@ import com.example.android.hxpress.R;
 import com.example.android.hxpress.base.BaseBackFragment;
 import com.example.android.hxpress.models.Chat;
 import com.example.android.hxpress.models.Msg;
-import com.example.android.hxpress.models.MsgAdapter;
+import com.example.android.hxpress.adapters.MsgAdapter;
 
 
 /**

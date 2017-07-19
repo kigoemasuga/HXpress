@@ -1,5 +1,8 @@
 package com.example.android.hxpress.models;
 
+import android.widget.Checkable;
+
+import java.io.Serializable;
 import java.util.List;
 import cn.bmob.v3.BmobObject;
 import cn.bmob.v3.datatype.BmobFile;
@@ -8,7 +11,7 @@ import cn.bmob.v3.datatype.BmobFile;
  * Created by kigoe on 2017/7/18.
  */
 
-public class User extends BmobObject {
+public class User extends BmobObject implements Serializable, Checkable {
     private String userName;
     private String userId;
     private String password;
@@ -17,7 +20,12 @@ public class User extends BmobObject {
     private double markPoint;
     private List<User> observables;
     private List<User> observer;
-    BmobFile iconImg;
+    private String iconImgUrl;
+
+    public User(String userName, String userId) {
+        this.userName = userName;
+        this.userId = userId;
+    }
 
     public String getUserName() {
         return userName;
@@ -83,11 +91,27 @@ public class User extends BmobObject {
         this.observer = observer;
     }
 
-    public BmobFile getIconImg() {
-        return iconImg;
+    public String getIconImgUrl() {
+        return iconImgUrl;
     }
 
-    public void setIconImg(BmobFile iconImg) {
-        this.iconImg = iconImg;
+    public void setIconImgUrl(String iconImgUrl) {
+        this.iconImgUrl = iconImgUrl;
+    }
+
+    @Override
+    public boolean isChecked() {
+        return false;
+    }
+
+    @Override
+    public void setChecked(boolean checked) {
+
+
+    }
+
+    @Override
+    public void toggle() {
+
     }
 }

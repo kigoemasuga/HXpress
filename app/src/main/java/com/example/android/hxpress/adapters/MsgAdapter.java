@@ -1,4 +1,4 @@
-package com.example.android.hxpress.models;
+package com.example.android.hxpress.adapters;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.example.android.hxpress.R;
 import com.example.android.hxpress.listener.OnItemClickListener;
+import com.example.android.hxpress.models.Msg;
 
 import java.util.ArrayList;
 import java.util.List;
