@@ -26,27 +26,21 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:25.+'
+
+
+    compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
-
     compile 'io.reactivex:rxjava:1.0.10'
-
-    //Butterknife
     compile 'com.jakewharton:butterknife:8.2.1'
-    apt 'com.jakewharton:butterknife-compiler:8.2.1'
-    //Bmob
     compile 'cn.bmob.android:bmob-sdk:3.5.5'
     compile 'cn.bmob.android:bmob-push:0.8'
     compile 'cn.bmob.android:bmob-im:2.0.5@aar'
     compile 'cn.bmob.android:http-legacy:1.0'
-
     compile 'com.android.support:design:25.0.0'
-
     compile 'org.greenrobot:eventbus:3.0.0'
-
-    //Fragmentation
     compile 'me.yokeyword:fragmentation:1.0.0'
     compile 'me.yokeyword:fragmentation-swipeback:1.0.0'
-
+    compile 'com.android.support:support-v4:25.3.1'
     testCompile 'junit:junit:4.12'
+    apt 'com.jakewharton:butterknife-compiler:8.2.1'
 }

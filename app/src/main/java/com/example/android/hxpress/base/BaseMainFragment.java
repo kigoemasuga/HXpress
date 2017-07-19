@@ -52,4 +52,6 @@ public abstract class BaseMainFragment extends SupportFragment {
     public interface OnBackToFirstListener {
         void onBackToFirstFragment();
     }
+
+
 }

@@ -1,6 +1,7 @@
-package com.example.android.hxpress.fragments;
+package com.example.android.hxpress.fragments.timeline;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,7 +16,6 @@ import me.yokeyword.fragmentation.SupportFragment;
  */
 
 public class TimeLineFragment extends SupportFragment {
-    private Toolbar mToolbar;
     public static TimeLineFragment newInstance() {
         return new TimeLineFragment();
     }
@@ -23,15 +23,20 @@ public class TimeLineFragment extends SupportFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_timeline, container, false);
-        initView(view);
-        // 动态改动 当前Fragment的动画
-        // setFragmentAnimator(fragmentAnimator);
         return view;
     }
-    private void initView(View view) {
-        mToolbar = (Toolbar) view.findViewById(R.id.toolbar);
-        //mRecy = (RecyclerView) view.findViewById(R.id.recy);
-        mToolbar.setTitle("TimeLine");
-        mToolbar.inflateMenu(R.menu.home);
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        if (findChildFragment(ViewPagerFragment.class) == null) {
+            loadRootFragment(R.id.fl_timeline_container, ViewPagerFragment.newInstance());
+        }
+    }
+
+    @Override
+    public void onLazyInitView(@Nullable Bundle savedInstanceState) {
+        super.onLazyInitView(savedInstanceState);
+        // 这里可以不用懒加载,因为Adapter的场景下,Adapter内的子Fragment只有在父Fragment是show状态时,才会被Attach,Create
     }
 }
