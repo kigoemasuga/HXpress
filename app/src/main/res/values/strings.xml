@@ -1,6 +1,25 @@
 <resources>
     <string name="app_name">HXpress</string>
     <string name="appbar_scrolling_view_behavior" translatable="false">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="home">首页</string>
+    <string name="discover">发现(Fragment+ViewPager嵌套)</string>
+    <string name="shop">商店(Fragment嵌套)</string>
+    <string name="login">登录</string>
+    <string name="system">系统</string>
+    <string name="swipe">侧滑返回Sample</string>
+    <string name="go_swipe_back">SwipeBackActivity+Fragment</string>
+    <string name="go_swipe_back_f">SwipeBackFragment</string>
+
+    <string name="recommend">推荐</string>
+    <string name="hot">热门</string>
+    <string name="favorite">收藏</string>
+
+    <string name="password">密码</string>
+    <string name="register">注册</string>
     <string name="large_text">
         "Material is the metaphor.\n\n"
 

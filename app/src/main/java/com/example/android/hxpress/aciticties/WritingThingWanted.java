@@ -42,8 +42,6 @@ public class WritingThingWanted extends AppCompatActivity {
     private static final String IMG_URL = "FALSE_IMAGE:";  //文件存放的路径并用来正则匹配的开头字符串
     private static final int FINISH = 459;
     private static final int PREVIEW = 489;
-    @BindView(R.id.imageView)
-    ImageView imageView;
     @BindView(R.id.title_textview)
     EditText titleTextview;
     @BindView(R.id.adddressname_textview)
@@ -60,11 +58,8 @@ public class WritingThingWanted extends AppCompatActivity {
     //webView全局变量
     WebView wvPreiview;
     List<String> imageUrlFromBmob;
+
     //数据
-    String title;
-    BmobGeoPoint address;
-    String send2Name;
-    String send2Address;
     String contentInHTML;
     private MRichEditor editor;//编辑器
 
@@ -73,19 +68,8 @@ public class WritingThingWanted extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_edit_thingwanted);
         ButterKnife.bind(this);
-        ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null) {
-            actionBar.hide();
-        }
         //初始化Bmob
         Bmob.initialize(this, AppManager.appID);
-        //返回
-        imageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
         findViewById(R.id.submit_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -108,7 +92,14 @@ public class WritingThingWanted extends AppCompatActivity {
             }
 
         });
-
+        submitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onFinished(v);
+                // Toast.makeText(WritingThingWanted.this, "提交成功！", Toast.LENGTH_LONG).show();
+                // Log.v("!!!", "onClick: button");
+            }
+        });
     }
 
 
@@ -180,9 +171,10 @@ public class WritingThingWanted extends AppCompatActivity {
      */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        ;
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_CANCELED) {
-            Toast.makeText(this, "取消操作", Toast.LENGTH_LONG).show();
+            Toast.makeText(WritingThingWanted.this, "取消操作", Toast.LENGTH_LONG).show();
             return;
         }
         if (requestCode == CamaraRequestCode.CAMARA_GET_IMG) {
@@ -232,30 +224,6 @@ public class WritingThingWanted extends AppCompatActivity {
                 }
             }
         });
-        /*if(journalTagsList==null)journalTagsList = new ArrayList<>();
-        //添加TagList
-        journalTagsList.add(new JournalTag(ModifyImageSrcFromHTML(editor.createHtmlStr()),etTitle.getText().toString().trim()));
-        //获取游记的标签列表
-        final Journal journal = new Journal();
-        //更新游记的tagList
-        journal.setJournalTagList(journalTagsList);
-        if(imageUrlFromBmob.size()!=0&&imageUrlFromBmob!=null){
-            journal.setTopImgUrl(imageUrlFromBmob.get(0));
-        }
-        Log.v("UploadToDB",JournalID);
-        //更新当前游记
-        journal.update(JournalID,new UpdateListener() {
-            @Override
-            public void done(BmobException e) {
-                if(e==null){
-                    ToastUtil.show(WritingJournal.this,"更新成功:"+ journal.getObjectId());
-                    //关闭acticity
-                    finish();
-                }else{
-                    ToastUtil.show(WritingJournal.this,"更新失败：" + e.getMessage());
-                }
-            }
-        });*/
     }
 
     /**

@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.android.hxpress.R;
+import com.example.android.hxpress.fragments.square.child.PhotoFragment;
 import com.example.android.hxpress.fragments.square.child.SameCityFragment;
 import com.example.android.hxpress.fragments.timeline.childpager.ChatRoomFragment;
 import com.example.android.hxpress.fragments.timeline.childpager.FirstPagerFragment;
@@ -40,16 +41,16 @@ public class SquarePagerAdapter extends FragmentPagerAdapter {
             return OtherPagerFragment.newInstance(position);
         } else if (position == 2) {
             //待购
-            return ChatRoomFragment.newInstance();
+            return OtherPagerFragment.newInstance(position);
         } else if (position == 3) {
             //随手送
-            return ChatRoomFragment.newInstance();
+            return OtherPagerFragment.newInstance(position);
         } else if (position == 4) {
             //分享
-            return ChatRoomFragment.newInstance();
+            return OtherPagerFragment.newInstance(position);
         } else {
             //照片
-            return ChatRoomFragment.newInstance();
+            return PhotoFragment.newInstance();
         }
     }
 

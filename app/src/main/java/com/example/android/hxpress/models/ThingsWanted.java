@@ -11,13 +11,13 @@ import cn.bmob.v3.datatype.BmobGeoPoint;
  */
 
 public class ThingsWanted extends BmobObject {
-    private static final int POST_WANTED = 634;         //发布了“欲购”的东西（待接单）
-    private static final int WAIT_FOR_PAY_PRICE = 847;  //有热心人想帮忙购买（代付款）
-    private static final int DEAL_WITHOUT_BUYED = 632;  //选择代购者完毕（已接单未购买）
-    private static final int WAIT_FOR_EXPRESS = 2;      //代购者已购物未有人派送（待派送）
-    private static final int WAIT_FOR_RECIEVE = 264;    //选择代送者完毕（待送达）
-    private static final int RECEIVED_WAIT_COMMENT = 233;//订单主确定收货（待评价）
-    private static final int DEAL_DONE = 667;           //订单主评价完成（交易完成）
+    public static final int POST_WANTED = 634;         //发布了“欲购”的东西（待接单）
+    public static final int WAIT_FOR_PAY_PRICE = 847;  //有热心人想帮忙购买（代付款）
+    public static final int DEAL_WITHOUT_BUYED = 632;  //选择代购者完毕（已接单未购买）
+    public static final int WAIT_FOR_EXPRESS = 2;      //代购者已购物未有人派送（待派送）
+    public static final int WAIT_FOR_RECIEVE = 264;    //选择代送者完毕（待送达）
+    public static final int RECEIVED_WAIT_COMMENT = 233;//订单主确定收货（待评价）
+    public static final int DEAL_DONE = 667;           //订单主评价完成（交易完成）
     private String title;                   //物品标题
     private String description;             //物品描述(HTML)
     private String topImgUrls;              //顶部图片的url
@@ -32,6 +32,22 @@ public class ThingsWanted extends BmobObject {
     private String send2Name;               //收件人名称
     private BmobGeoPoint whereitnow;        //物品的当前位置
     private String whereCanBuyInAddress;    //在哪里可以买的具体地址
+
+    public ThingsWanted() {
+    }
+
+    public ThingsWanted(String title, String description, String topImgUrls, int progressNum, User recipients, BmobGeoPoint point, String send2address, String send2Name, BmobGeoPoint whereitnow, String whereCanBuyInAddress) {
+        this.title = title;
+        this.description = description;
+        this.topImgUrls = topImgUrls;
+        this.progressNum = progressNum;
+        this.recipients = recipients;
+        this.point = point;
+        this.send2address = send2address;
+        this.send2Name = send2Name;
+        this.whereitnow = whereitnow;
+        this.whereCanBuyInAddress = whereCanBuyInAddress;
+    }
 
     public String statusCode2TextInSquare(int statuCode) {
         String statusInString = "";

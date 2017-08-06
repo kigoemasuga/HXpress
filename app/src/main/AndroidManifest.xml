@@ -21,6 +21,7 @@
         android:value="8dad92c6085c9bcd747f5cb2c3d756af"></meta-data>
     <application
         android:name=".App"
+        android:icon="@drawable/hxpress"
         android:label="@string/app_name"
         android:theme="@style/AppTheme.NoActionBar">
         <activity android:name=".aciticties.WholeActivity">

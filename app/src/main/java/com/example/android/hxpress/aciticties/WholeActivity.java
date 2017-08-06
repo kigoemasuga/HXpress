@@ -5,12 +5,14 @@ import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentManager;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.example.android.hxpress.R;
 import com.example.android.hxpress.base.BaseMainFragment;
 import com.example.android.hxpress.event.TabSelectedEvent;
 import com.example.android.hxpress.fragments.aboutme.AboutMeFragment;
 import com.example.android.hxpress.fragments.MoreInfoFragment;
+import com.example.android.hxpress.fragments.aboutme.child.LoginFragment;
 import com.example.android.hxpress.fragments.square.SquareFragment;
 import com.example.android.hxpress.fragments.timeline.TimeLineFragment;
 import com.example.android.hxpress.view.BottomBar;
@@ -19,7 +21,7 @@ import org.greenrobot.eventbus.EventBus;
 import me.yokeyword.fragmentation.SupportActivity;
 import me.yokeyword.fragmentation.SupportFragment;
 
-public class WholeActivity extends SupportActivity implements BaseMainFragment.OnBackToFirstListener {
+public class WholeActivity extends SupportActivity implements BaseMainFragment.OnBackToFirstListener, LoginFragment.OnLoginSuccessListener {
     public static final int FIRST = 0;
     public static final int SECOND = 1;
     public static final int THIRD = 2;
@@ -122,5 +124,10 @@ public class WholeActivity extends SupportActivity implements BaseMainFragment.O
     @Override
     public void onBackToFirstFragment() {
         mBottomBar.setCurrentItem(0);
+    }
+
+    @Override
+    public void onLoginSuccess(String account) {
+        Toast.makeText(this, "登录成功!", Toast.LENGTH_SHORT).show();
     }
 }

@@ -44,6 +44,9 @@ dependencies {
     compile 'com.huangdali:mricheditor:1.0.1'
     compile 'com.github.hackware1993:MagicIndicator:1.5.0'
     compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'com.github.techery:properratingbar:0.0.5'
+    compile 'de.hdodenhof:circleimageview:2.1.0'
+    compile 'com.robinhood.ticker:ticker:1.2.0'
     compile files('libs/AMap3DMap_5.2.1_AMapLocation_3.4.1_20170630.jar')
     testCompile 'junit:junit:4.12'
     apt 'com.jakewharton:butterknife-compiler:8.2.1'

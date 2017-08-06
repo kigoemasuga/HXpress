@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="5dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginTop="0dp"
     android:orientation="vertical">
 
     <LinearLayout
@@ -14,7 +18,7 @@
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_gravity="center"
-            android:layout_margin="5dp"
+            android:padding="2dp"
             android:src="@drawable/almond_blossoms" />
 
         <LinearLayout
@@ -38,9 +42,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="5dp"
+                android:layout_marginBottom="1dp"
+                android:layout_marginTop="3dp"
                 android:text="鼓楼大街的冰糖葫芦X酸奶"
-                android:textSize="22sp" />
+                android:textColor="@color/primary_text"
+                android:textSize="20sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -57,7 +63,7 @@
                     android:layout_marginRight="5dp"
                     android:background="@color/divider"
                     android:padding="2dp"
-                    android:text="待代购"
+                    android:text="待評價"
                     android:textColor="@color/icons"
                     android:textSize="10dp" />
 
@@ -65,31 +71,25 @@
                     android:layout_width="12dp"
                     android:layout_height="12dp"
                     android:layout_gravity="center"
-                    android:src="@drawable/ic_attach_money_black_24dp" />
+                    android:src="@drawable/ic_send_black_24dp" />
 
                 <TextView
-                    android:id="@+id/want_help_buy_people_num_textview"
+                    android:id="@+id/help_delivery_num"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="12人想帮忙购买"
-                    android:textSize="10dp" />
+                    android:text="货物已经当到亲的手中，给个评价吧"
+                    android:textSize="10sp" />
 
-                <ImageView
-                    android:layout_width="12dp"
-                    android:layout_height="12dp"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="10dp"
-                    android:src="@drawable/ic_directions_walk_black_24dp" />
-
-                <TextView
-                    android:id="@+id/want_help_delivery_people_num_textview"
+                <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="12人想随手快递"
-                    android:textSize="10dp" />
-
+                    android:layout_marginLeft="15dp"
+                    android:background="@drawable/buttonstyle"
+                    android:padding="2dp"
+                    android:text="評價"
+                    android:textColor="@color/icons" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
