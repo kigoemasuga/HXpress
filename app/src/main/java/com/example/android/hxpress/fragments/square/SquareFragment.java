@@ -36,7 +36,7 @@ import butterknife.Unbinder;
 
 public class SquareFragment extends BaseMainFragment {
 
-    private static final String[] CHANNELS = new String[]{"    同城    ", "   世界    ", "    欲购    ", "    随手送    ", "    分享    ", "    照片    "};
+    private static final String[] CHANNELS = new String[]{"    同城    ", "   世界    ", "    欲购    ", "    随手送    ", "    照片    "};
     @BindView(R.id.toolbar)
     Toolbar toolbar;
     @BindView(R.id.view_pager)

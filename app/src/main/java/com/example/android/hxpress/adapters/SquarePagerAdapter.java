@@ -1,20 +1,11 @@
 package com.example.android.hxpress.adapters;
 
-import android.graphics.Color;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.PagerAdapter;
-import android.view.Gravity;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
 
-import com.example.android.hxpress.R;
 import com.example.android.hxpress.fragments.square.child.PhotoFragment;
 import com.example.android.hxpress.fragments.square.child.SameCityFragment;
-import com.example.android.hxpress.fragments.timeline.childpager.ChatRoomFragment;
-import com.example.android.hxpress.fragments.timeline.childpager.FirstPagerFragment;
 import com.example.android.hxpress.fragments.timeline.childpager.OtherPagerFragment;
 
 import java.util.List;
@@ -44,9 +35,6 @@ public class SquarePagerAdapter extends FragmentPagerAdapter {
             return OtherPagerFragment.newInstance(position);
         } else if (position == 3) {
             //随手送
-            return OtherPagerFragment.newInstance(position);
-        } else if (position == 4) {
-            //分享
             return OtherPagerFragment.newInstance(position);
         } else {
             //照片

@@ -4,7 +4,11 @@ android {
     compileSdkVersion 25
     buildToolsVersion "25.0.0"
     useLibrary 'org.apache.http.legacy'
+    aaptOptions {
+        cruncherEnabled = false
+        useNewCruncher = false
 
+    }
     defaultConfig {
         applicationId "com.example.android.hxpress"
         minSdkVersion 21
@@ -29,6 +33,7 @@ dependencies {
 
 
     compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'me.gujun.android.taggroup:library:1.4@aar'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'io.reactivex:rxjava:1.0.10'
     compile 'com.jakewharton:butterknife:8.2.1'

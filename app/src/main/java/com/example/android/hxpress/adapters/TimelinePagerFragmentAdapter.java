@@ -5,8 +5,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import com.example.android.hxpress.fragments.timeline.childpager.ChatRoomFragment;
-import com.example.android.hxpress.fragments.timeline.childpager.FirstPagerFragment;
-import com.example.android.hxpress.fragments.timeline.childpager.OtherPagerFragment;
+import com.example.android.hxpress.fragments.timeline.childpager.DeliverFragment;
+import com.example.android.hxpress.fragments.timeline.childpager.OrderFragment;
 
 
 /**
@@ -22,9 +22,9 @@ public class TimelinePagerFragmentAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
         if (position == 0) {
-            return FirstPagerFragment.newInstance();
+            return OrderFragment.newInstance();
         } else if (position == 1) {
-            return OtherPagerFragment.newInstance(position);
+            return DeliverFragment.newInstance();
         } else {
             return ChatRoomFragment.newInstance();
         }

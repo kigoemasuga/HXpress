@@ -28,7 +28,6 @@ import com.example.android.hxpress.aciticties.WholeActivity;
 import com.example.android.hxpress.adapters.WantedThingAdapterInSquare;
 import com.example.android.hxpress.event.TabSelectedEvent;
 import com.example.android.hxpress.fragments.timeline.DetailFragment;
-import com.example.android.hxpress.fragments.timeline.childpager.FirstPagerFragment;
 import com.example.android.hxpress.listener.OnItemClickListener;
 import com.example.android.hxpress.managers.UserManager;
 import com.example.android.hxpress.maps.ClusterClickListener;
